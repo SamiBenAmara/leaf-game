@@ -65,13 +65,18 @@ body {
     grid-template-rows: repeat(2, min-content);
     justify-content: center;
     text-align: center;
+    grid-gap: 5px;
 }
 
 #gameTitle {
     color: rgb(0, 0, 0);
     background-color: rgba(53, 103, 62, 0.8);
+    background-size: cover;
+    background-image: url(./media/woodsign.jpg);
     padding: 10px;
     font-size: 40px;
+    border-radius: 2px;
+    margin: 5px;
 }
 
 #gameboardContainer {
