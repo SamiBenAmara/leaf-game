@@ -100,21 +100,6 @@ img {
     min-width: 30px;
 }
 
-.leafDiv {
-    background-image: url("./media/leaf-front.svg");
-}
-
-.moveRight {
-    transform: rotate(90deg);
-}
-
-.moveDown {
-    transform: rotate(180deg);
-}
-
-.moveLeft {
-    transform: rotate(270deg);
-}
 .leafDiv{
     background-image: url("./media/leaf-front.svg");
     background-size: cover;
