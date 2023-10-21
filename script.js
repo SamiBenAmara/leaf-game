@@ -1,5 +1,5 @@
+import { transformLeaf } from "./leaf.js";
 //Initialize grid space as a table and add the onclick event listener
-
 const gameboardContainer = document.getElementById('gameboardContainer')
 
 function generateGrid(gridSize) {
@@ -29,6 +29,8 @@ function generateGrid(gridSize) {
             coordinates.x=this.cellIndex;
             coordinates.y=this.parentNode.rowIndex;
             console.log(coordinates);
+            let leafObj=this.querySelector("div .leaf");
+            transformLeaf(leafObj);
         };
     }
 }

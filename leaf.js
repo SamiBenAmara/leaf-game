@@ -1,9 +1,6 @@
-
+export {transformLeaf};
 let bug = 0;
 let flipState = 0;
-
-const leaf = document.getElementById('clickLeaf');
-const back = document.getElementById('bugBack');
 
 
 function bugEntered(){
@@ -32,16 +29,12 @@ function bugLeft(){
 
 // }
 
-function transformLeaf(){
+function transformLeaf(leafObject){
 
-    leaf.style.transform = 'rotateY(-1620deg)';
+    leafObject.style.transform = 'rotateY(-1620deg)';
 
-    leaf.style.animation = 'fadeOut 1500ms';
+    leafObject.style.animation = 'fadeOut 1500ms';
 
-    leaf.style.opacity = 0;
+    leafObject.style.opacity = 0;
 
 }
-
-
-
-leaf.addEventListener('click',transformLeaf);
