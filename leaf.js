@@ -34,11 +34,17 @@ function bugLeft(){
 
 function transformLeaf(){
 
-    leaf.style.transform = 'rotateY(-1620deg)';
+    if(flipState == 0){
 
-    leaf.style.animation = 'fadeOut 1500ms';
+        leaf.style.transform = 'rotateY(-1620deg)';
+    
+        leaf.style.animation = 'fadeOut 1500ms';
+    
+        leaf.style.opacity = 0;
 
-    leaf.style.opacity = 0;
+        flipState = 1;
+
+    }
 
 }
 
