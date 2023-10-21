@@ -94,7 +94,7 @@ body {
 
 .gamePiece {
     outline: solid rgb(70, 38, 21) 1px;
-    height: 10vh;
+    height: 5vh;
     width: 5vw;
     min-height: 30px;
     min-width: 30px;
