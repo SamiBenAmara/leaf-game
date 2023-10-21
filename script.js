@@ -10,8 +10,19 @@ function generateGrid(gridSize) {
         gamePiece.setAttribute("xPos",j);
         gamePiece.setAttribute("yPos",i);
         gamePiece.classList.add("gamePiece");
+        
         let leafDiv=document.createElement("div");
-        leafDiv.classList.add("leafDiv");
+        leafDiv.classList.add("leaf");
+        
+        let frontDiv=document.createElement("div");
+        frontDiv.classList.add("front");
+        
+        let backDiv=document.createElement("div");
+        backDiv.classList.add("back");
+        
+        leafDiv.appendChild(frontDiv);
+        leafDiv.appendChild(backDiv);
+        
         gamePiece.appendChild(leafDiv);
         gamePiece.onclick= function(){
             let coordinates={"x":-1,"y":-1}
