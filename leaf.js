@@ -38,6 +38,8 @@ function transformLeaf(){
 
     leaf.style.animation = 'fadeOut 1500ms';
 
+    leaf.style.opacity = 0;
+
 }
 
 
