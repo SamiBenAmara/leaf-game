@@ -99,10 +99,3 @@ img {
     min-height: 30px;
     min-width: 30px;
 }
-
-.leafDiv{
-    background-image: url("./media/leaf-front.svg");
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}

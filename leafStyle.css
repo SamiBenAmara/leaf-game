@@ -31,20 +31,22 @@
 .front,
 .back {
     background-color: rgba(0,0,0,0);
-    height:100%;
-    width: 100%;
-    border-radius: 2rem;
+    height: 90%;
+    width: 90%;
     backface-visibility: hidden;
+    display: flex;
+    margin-left: 2px;
+    margin-top: 1px;
 }
 
 .front {
-    background-image: url('../media/leaf-front.svg');
+    background-image: url('./media/leaf-front.svg');
     background-size: cover;
     background-repeat: no-repeat
 }
 
 .back {
-    background-image: url('../media/leaf-back.svg');
+    background-image: url('./media/leaf-back.svg');
     background-size: cover;
     background-repeat: no-repeat;
     transform: rotateY(180deg);
