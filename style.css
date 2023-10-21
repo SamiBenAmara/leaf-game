@@ -49,6 +49,17 @@ table {
 
 /* RESET ENDS */
 
+@font-face {
+    font-family: funnyFont;
+    src: url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
+}
+
+body {
+    background-size: cover;
+    background-image: url("./media/leafbackground.jpg");
+    font-family: funnyFont, cursive, sans-serif ;
+}
+
 #container {
     display: grid;
     grid-template-rows: repeat(2, min-content);
@@ -57,12 +68,18 @@ table {
 }
 
 #gameTitle {
-    color: red;
+    color: rgb(0, 0, 0);
+    background-color: rgba(53, 103, 62, 0.8);
     padding: 10px;
+    font-size: 40px;
 }
 
 #gameboardContainer {
-    outline: dashed red;
+    justify-self: center;
+    width: fit-content;
+    height: fit-content;
+    outline: solid rgb(70, 38, 21);
+    background-color: rgba(53, 103, 62, 0.8);
     display: grid;
     justify-content: center;
     text-align: center;
@@ -71,7 +88,7 @@ table {
 }
 
 .gamePiece {
-    outline: dashed green;
+    outline: solid rgb(70, 38, 21) 1px;
     height: 10vh;
     width: 5vw;
     min-height: 30px;
