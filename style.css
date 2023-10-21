@@ -49,15 +49,10 @@ table {
 
 /* RESET ENDS */
 
-@font-face {
-    font-family: funnyFont;
-    src: url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
-}
-
 body {
     background-size: cover;
     background-image: url("./media/leafbackground.jpg");
-    font-family: funnyFont, cursive, sans-serif ;
+    font-family: cursive, sans-serif ;
 }
 
 #container {
@@ -81,8 +76,8 @@ body {
 
 #gameboardContainer {
     justify-self: center;
-    width: fit-content;
-    height: fit-content;
+    min-width: fit-content;
+    min-height: fit-content;
     outline: solid rgb(70, 38, 21);
     background-color: rgba(53, 103, 62, 0.8);
     display: grid;
@@ -98,4 +93,17 @@ body {
     width: 5vw;
     min-height: 30px;
     min-width: 30px;
+    background-image: url("./media/leaf-front.svg");
+}
+
+.moveRight {
+    transform: rotate(90deg);
+}
+
+.moveDown {
+    transform: rotate(180deg);
+}
+
+.moveLeft {
+    transform: rotate(270deg);
 }

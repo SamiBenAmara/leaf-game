@@ -2,9 +2,10 @@
 
 const gameboardContainer = document.getElementById('gameboardContainer')
 
-for (let i = 0; i < 15; i++){
+function generateGrid(gridSize) {
+    for (let i = 0; i < gridSize; i++){
     let row=gameboardContainer.insertRow();
-    for(let j=0;j<15;j++){
+    for(let j=0;j<gridSize;j++){
         let gamePiece = row.insertCell();
         gamePiece.setAttribute("xPos",j);
         gamePiece.setAttribute("yPos",i);
@@ -17,3 +18,6 @@ for (let i = 0; i < 15; i++){
         };
     }
 }
+}
+
+generateGrid(16)
