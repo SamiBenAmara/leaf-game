@@ -15,6 +15,29 @@
         <h1 id="gameTitle">TURNING OVER A NEW LEAF</h1>
         <table id="gameboardContainer"></table>
     </div>
+
+    <!-- Import firebase modules -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script>
+    // My firebase settings
+    const firebaseConfig = {
+        apiKey: "AIzaSyBr9lododScFjETHhQztu835uvX4gh1nPw",
+        authDomain: "fall-hack-leaf-game.firebaseapp.com",
+        databaseURL: "https://fall-hack-leaf-game-default-rtdb.firebaseio.com",
+        projectId: "fall-hack-leaf-game",
+        storageBucket: "fall-hack-leaf-game.appspot.com",
+        messagingSenderId: "1046207891068",
+        appId: "1:1046207891068:web:ba42cf5ce64b8a745f6bf9"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <<script defer src="app.js"></script>
 </body>
 
 </html>

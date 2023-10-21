@@ -2,6 +2,8 @@
 
 const gameboardContainer = document.getElementById('gameboardContainer')
 
+const GRID_SIZE = 15
+
 function generateGrid(gridSize) {
     for (let i = 0; i < gridSize; i++){
     let row=gameboardContainer.insertRow();
@@ -20,4 +22,4 @@ function generateGrid(gridSize) {
 }
 }
 
-generateGrid(16)
+generateGrid(15)
