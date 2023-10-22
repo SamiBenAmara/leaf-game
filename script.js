@@ -29,9 +29,21 @@ function generateGrid(gridSize) {
             coordinates.x=this.cellIndex;
             coordinates.y=this.parentNode.rowIndex;
             console.log(coordinates);
+            let leafObj=this.querySelector("div .leaf");
+            transformLeaf(leafObj);
         };
     }
 }
+}
+
+function transformLeaf(leafObject){
+
+    leafObject.style.transform = 'rotateY(-1620deg)';
+
+    leafObject.style.animation = 'fadeOut 1500ms';
+
+    leafObject.style.opacity = 0;
+
 }
 
 generateGrid(16)
