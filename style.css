@@ -56,6 +56,7 @@ body {
     background-size: cover;
     background-image: url("./media/leafbackground.jpg");
     font-family: cursive, sans-serif ;
+    text-shadow: 1px 1px 1px grey;
 }
 
 #container {
