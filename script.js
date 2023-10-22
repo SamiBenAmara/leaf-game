@@ -1,6 +1,8 @@
 //Initialize grid space as a table and add the onclick event listener
 
 const gameboardContainer = document.getElementById('gameboardContainer')
+const audio = new Audio();
+audio.src = "media//Audio//leafCrunch.mp3";
 
 function generateGrid(gridSize) {
     for (let i = 0; i < gridSize; i++){
@@ -37,6 +39,8 @@ function generateGrid(gridSize) {
 }
 
 function transformLeaf(leafObject){
+    audio.load();
+    audio.play();
 
     leafObject.style.transform = 'rotateY(-1620deg)';
 
