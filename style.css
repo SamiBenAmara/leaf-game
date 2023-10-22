@@ -84,7 +84,7 @@ img {
     min-width: fit-content;
     min-height: fit-content;
     outline: solid rgb(70, 38, 21);
-    background-color: rgba(53, 103, 62, 0.8);
+    background-color: rgba(73, 54, 23, 0.8);
     display: grid;
     justify-content: center;
     text-align: center;
@@ -96,8 +96,8 @@ img {
     outline: solid rgb(70, 38, 21) 1px;
     height: 5vh;
     width: 5vw;
-    min-height: 30px;
-    min-width: 30px;
+    min-height: 50px;
+    min-width: 40px;
 }
 
 /* LEAF STYLE */
