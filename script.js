@@ -88,13 +88,10 @@ function generateGrid(gridSize) {
             transformLeaf(leafObj, isBugHere);
             if (isBugHere) {
                 leafObj.style.display = "none";
-
                 bugObj.style.display = "block";
                 bugsFound++;
-                document.getElementById("bugsFound").textContent="Bugs Found: "+bugsFound.toString();
+                document.getElementById("FoundBugs").textContent="Bugs Found: "+bugsFound.toString();
             }
-            leavesTurned++;
-            document.getElementById("leavesFound").textContent="Leaves flipped: "+leavesTurned.toString();;
         };
     }
 }
@@ -107,7 +104,11 @@ function leafToBug(leafObject) {
 function transformLeaf(leafObject){
     // audio.load();
     // audio.play();
-
+    if(parseFloat(window.getComputedStyle(leafObject).getPropertyValue("opacity")))
+    {
+        leavesTurned++;
+        document.getElementById("leavesFound").textContent="Leaves flipped: "+leavesTurned.toString();
+    }
     leafObject.style.transform = 'rotateY(-1620deg)';
 
     leafObject.style.animation = 'fadeOut 1500ms';
@@ -122,12 +123,12 @@ function createScoreboard() {
     // for (let i = 0; i < players; i++) {
         let found = document.createElement('div');
         found.classList.add("scoreboardContainer");
-        found.id="bugsFound";
-        found.textContent="Leaves flipped: "+leavesTurned.toString();
+        found.id="FoundBugs";
+        found.textContent="Bugs flipped: "+leavesTurned.toString();
         let leaves = document.createElement('div');
         leaves.classList.add("scoreboardContainer");
         leaves.id="leavesFound";
-        leaves.textContent="Bugs Found: "+bugsFound.toString();
+        leaves.textContent="Leaves Found: "+bugsFound.toString();
         scoreboard.appendChild(found);
         scoreboard.appendChild(leaves);
     }
