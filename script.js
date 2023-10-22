@@ -12,14 +12,40 @@ function generateGrid(gridSize) {
         gamePiece.setAttribute("xPos",j);
         gamePiece.setAttribute("yPos",i);
         gamePiece.classList.add("gamePiece");
+        
+        let leafDiv=document.createElement("div");
+        leafDiv.classList.add("leaf");
+        
+        let frontDiv=document.createElement("div");
+        frontDiv.classList.add("front");
+        
+        let backDiv=document.createElement("div");
+        backDiv.classList.add("back");
+        
+        leafDiv.appendChild(frontDiv);
+        leafDiv.appendChild(backDiv);
+        
+        gamePiece.appendChild(leafDiv);
         gamePiece.onclick= function(){
             let coordinates={"x":-1,"y":-1}
             coordinates.x=this.cellIndex;
             coordinates.y=this.parentNode.rowIndex;
             console.log(coordinates);
+            let leafObj=this.querySelector("div .leaf");
+            transformLeaf(leafObj);
         };
     }
 }
 }
 
-generateGrid(15)
+function transformLeaf(leafObject){
+
+    leafObject.style.transform = 'rotateY(-1620deg)';
+
+    leafObject.style.animation = 'fadeOut 1500ms';
+
+    leafObject.style.opacity = 0;
+
+}
+
+generateGrid(16)
