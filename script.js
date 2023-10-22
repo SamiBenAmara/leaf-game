@@ -88,9 +88,12 @@ function generateGrid(gridSize) {
             transformLeaf(leafObj, isBugHere);
             if (isBugHere) {
                 leafObj.style.display = "none";
+                if(window.getComputedStyle(bugObj).getPropertyValue("display")!="block")
+                {
+                    bugsFound++;
+                    document.getElementById("FoundBugs").textContent="Bugs Found: "+bugsFound.toString();
+                }
                 bugObj.style.display = "block";
-                bugsFound++;
-                document.getElementById("FoundBugs").textContent="Bugs Found: "+bugsFound.toString();
             }
         };
     }
@@ -104,7 +107,8 @@ function leafToBug(leafObject) {
 function transformLeaf(leafObject){
     // audio.load();
     // audio.play();
-    if(parseFloat(window.getComputedStyle(leafObject).getPropertyValue("opacity")))
+    opacity=parseFloat(window.getComputedStyle(leafObject).getPropertyValue("opacity"));
+    if(opacity==1)
     {
         leavesTurned++;
         document.getElementById("leavesFound").textContent="Leaves flipped: "+leavesTurned.toString();
