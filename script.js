@@ -1,6 +1,8 @@
 //Initialize grid space as a table and add the onclick event listener
 
 const gameboardContainer = document.getElementById('gameboardContainer')
+const audio = new Audio();
+audio.src = "media//Audio//leafCrunch.mp3";
 
 const GRID_SIZE = 15
 
@@ -39,6 +41,8 @@ function generateGrid(gridSize) {
 }
 
 function transformLeaf(leafObject){
+    audio.load();
+    audio.play();
 
     leafObject.style.transform = 'rotateY(-1620deg)';
 
@@ -47,5 +51,23 @@ function transformLeaf(leafObject){
     leafObject.style.opacity = 0;
 
 }
+
+const scoreboard = document.getElementById('scoreboard')
+
+function createScoreboard(players) {
+    for (let i = 0; i < players; i++) {
+        let scoreboardContainer = document.createElement('div');
+        scoreboardContainer.classList.add("scoreboardContainer");
+        scoreboard.appendChild(scoreboardContainer);
+        let scoreName = document.createElement('div');
+        scoreName.textContent = (`Player ${[i+1]}`);
+        scoreboardContainer.appendChild(scoreName);
+        let scoreCount = document.createElement('div');
+        scoreCount.textContent = ("1234")
+        scoreboardContainer.appendChild(scoreCount);
+    }
+}
+
+createScoreboard(4)
 
 generateGrid(16)
