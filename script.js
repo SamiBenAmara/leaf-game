@@ -2,6 +2,8 @@
 
 let coordinatesArray = [];
 let bugCoordinatesArray = [];
+var leavesTurned=0;
+var bugsFound=0;
 
 function generateBugCoordinates() {
 
@@ -88,7 +90,11 @@ function generateGrid(gridSize) {
                 leafObj.style.display = "none";
 
                 bugObj.style.display = "block";
+                bugsFound++;
+                document.getElementById("bugsFound").textContent="Bugs Found: "+bugsFound.toString();
             }
+            leavesTurned++;
+            document.getElementById("leavesFound").textContent="Leaves flipped: "+leavesTurned.toString();;
         };
     }
 }
@@ -112,25 +118,19 @@ function transformLeaf(leafObject){
 
 const scoreboard = document.getElementById('scoreboard')
 
-function createScoreboard(players) {
-    for (let i = 0; i < players; i++) {
-        let scoreboardContainer = document.createElement('div');
-        scoreboardContainer.classList.add("scoreboardContainer");
-        scoreboard.appendChild(scoreboardContainer);
-        let scoreName = document.createElement('div');
-        scoreName.id = `name${[i]}`
-        scoreName.classList.add('playerName')
-        scoreName.textContent = (`Player -`);
-        scoreboardContainer.appendChild(scoreName);
-        let scoreCount = document.createElement('div');
-        scoreCount.id = `score${[i]}`
-        scoreCount.classList.add('scoreCount')
-        scoreCount.textContent = (0)
-        scoreboardContainer.appendChild(scoreCount);
+function createScoreboard() {
+    // for (let i = 0; i < players; i++) {
+        let found = document.createElement('div');
+        found.classList.add("scoreboardContainer");
+        found.id="bugsFound";
+        found.textContent="Leaves flipped: "+leavesTurned.toString();
+        let leaves = document.createElement('div');
+        leaves.classList.add("scoreboardContainer");
+        leaves.id="leavesFound";
+        leaves.textContent="Bugs Found: "+bugsFound.toString();
+        scoreboard.appendChild(found);
+        scoreboard.appendChild(leaves);
     }
-}
-
-createScoreboard(4)
-
 generateBugCoordinates();
+createScoreboard();
 generateGrid(GRID_SIZE)
