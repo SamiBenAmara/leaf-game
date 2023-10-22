@@ -185,7 +185,6 @@ body {
     transform: scale(1.05);
     color:black;
     transition: 0.1s;
-
 }
 
 .Reset:active {
