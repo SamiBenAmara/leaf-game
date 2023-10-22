@@ -55,11 +55,6 @@ body {
     font-family: cursive, sans-serif ;
 }
 
-img {
-    max-width: 30px;
-    max-height: 30px;
-}
-
 #container {
     display: grid;
     grid-template-rows: repeat(2, min-content);
@@ -94,10 +89,10 @@ img {
 
 .gamePiece {
     outline: solid rgb(70, 38, 21) 1px;
-    height: 5vh;
-    width: 5vw;
-    min-height: 50px;
-    min-width: 40px;
+    height:100%;
+    width: 100%;
+    min-height: 30px;
+    min-width: 30px;
 }
 
 /* LEAF STYLE */
@@ -109,20 +104,18 @@ img {
 }
 
 .leaf {
-    height:100%;
-    width: 100%;
     transition: transform 1500ms;
     transform-style: preserve-3d;
+    height: 5vh;
+    width: 5vw;
+    max-width: 30px;
+    max-height: 30px;
 }
 
 @keyframes fadeOut{
     0%{ opacity: 1; }
     100%{ opacity: 0; }
 }
-
-/* .container:hover > .leaf{
-    transform: rotateY(180deg);
-} */
 
 .front,
 .back {
