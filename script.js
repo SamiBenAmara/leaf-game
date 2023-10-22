@@ -127,6 +127,7 @@ function createScoreboard(players) {
         scoreCount.classList.add('scoreCount')
         scoreCount.textContent = (0)
         scoreboardContainer.appendChild(scoreCount);
+    
     }
 }
 
