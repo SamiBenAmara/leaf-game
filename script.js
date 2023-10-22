@@ -41,6 +41,10 @@ function checkIfBugIsHere(x, y) {
 }
 
 const gameboardContainer = document.getElementById('gameboardContainer')
+const audio = new Audio();
+audio.src = "media//Audio//leafCrunch.mp3";
+
+const GRID_SIZE = 15
 
 function generateGrid(gridSize) {
     for (let i = 0; i < gridSize; i++){
@@ -95,6 +99,8 @@ function leafToBug(leafObject) {
 }
 
 function transformLeaf(leafObject){
+    // audio.load();
+    // audio.play();
 
     leafObject.style.transform = 'rotateY(-1620deg)';
 
@@ -104,5 +110,27 @@ function transformLeaf(leafObject){
     
 }
 
+const scoreboard = document.getElementById('scoreboard')
+
+function createScoreboard(players) {
+    for (let i = 0; i < players; i++) {
+        let scoreboardContainer = document.createElement('div');
+        scoreboardContainer.classList.add("scoreboardContainer");
+        scoreboard.appendChild(scoreboardContainer);
+        let scoreName = document.createElement('div');
+        scoreName.id = `name${[i]}`
+        scoreName.classList.add('playerName')
+        scoreName.textContent = (`Player -`);
+        scoreboardContainer.appendChild(scoreName);
+        let scoreCount = document.createElement('div');
+        scoreCount.id = `score${[i]}`
+        scoreCount.classList.add('scoreCount')
+        scoreCount.textContent = (0)
+        scoreboardContainer.appendChild(scoreCount);
+    }
+}
+
+createScoreboard(4)
+
 generateBugCoordinates();
-generateGrid(16);
+generateGrid(GRID_SIZE)
