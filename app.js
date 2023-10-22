@@ -39,6 +39,9 @@ function createName() {
             x,
             y,
         })
+
+        // get the player 
+
     }
 
     const resetButton = document.getElementById("Reset");
