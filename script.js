@@ -50,4 +50,22 @@ function transformLeaf(leafObject){
 
 }
 
+const scoreboard = document.getElementById('scoreboard')
+
+function createScoreboard(players) {
+    for (let i = 0; i < players; i++) {
+        let scoreboardContainer = document.createElement('div');
+        scoreboardContainer.classList.add("scoreboardContainer");
+        scoreboard.appendChild(scoreboardContainer);
+        let scoreName = document.createElement('div');
+        scoreName.textContent = (`Player ${[i+1]}`);
+        scoreboardContainer.appendChild(scoreName);
+        let scoreCount = document.createElement('div');
+        scoreCount.textContent = ("1234")
+        scoreboardContainer.appendChild(scoreCount);
+    }
+}
+
+createScoreboard(4)
+
 generateGrid(16)
