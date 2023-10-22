@@ -5,7 +5,7 @@ function getKeyString(x, y) {
 function createName() {
     let rand_int = Math.floor(Math.random() * 1000)
     let int_as_str = rand_int.toString()
-    return "User" + int_as_str
+    return "Player " + int_as_str
 }
 
 (function () {
@@ -41,6 +41,24 @@ function createName() {
         })
     }
 
+    const resetButton = document.getElementById("Reset");
+    resetButton.addEventListener('click', resetClick);
+
+    function resetClick(e) {
+        const allLeavesRef = firebase.database().ref(`leaves`);
+        allLeavesRef.remove();
+
+        // clear local leaves
+        leaves = {};
+
+        location.reload();
+        // let gameBoard = document.getElementById("gameboardContainer");
+        // while (gameBoard.rows.length > 0) {
+        //     gameBoard.deleteRow[0];
+        // }
+        // generateGrid(15);
+    }
+
     function initGame() {
         const allPlayersRef = firebase.database().ref(`players`);
         const allBugsRef = firebase.database().ref(`bugs`);
@@ -57,7 +75,7 @@ function createName() {
         })
 
         allLeavesRef.on("value", (snapshot) => {
-            // Do something when a change occurs in bugs
+            // Do something when a change occurs in leaves
             leaves = snapshot.val() || {};
         })
 
@@ -77,12 +95,17 @@ function createName() {
             transformLeaf(toChangeLeafContainer.querySelector("div .leaf"));
         })
 
+        allLeavesRef.on("child_removed", (snapshot) => {
+            leaves = {};
+            location.reload();
+        })
+
         allPlayersRef.on("child_added", (snapshot) => {
             // fires when a new player is added in the tree
             const addedPlayer = snapshot.val();
             console.log("Player added: ", addedPlayer);
-            const characterElement = document.createElement('div');
             // TODO: to add the player to a score grid-cell on side of window (where scores go)
+            const scoreBoard = document.getElementById("scoreboard");
 
         })
     }

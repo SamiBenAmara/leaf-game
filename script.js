@@ -41,8 +41,8 @@ function generateGrid(gridSize) {
 }
 
 function transformLeaf(leafObject){
-    audio.load();
-    audio.play();
+    // audio.load();
+    // audio.play();
 
     leafObject.style.transform = 'rotateY(-1620deg)';
 
@@ -70,4 +70,4 @@ function createScoreboard(players) {
 
 createScoreboard(4)
 
-generateGrid(16)
+generateGrid(GRID_SIZE)
