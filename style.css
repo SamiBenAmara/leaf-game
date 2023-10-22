@@ -84,18 +84,19 @@ img {
     min-width: fit-content;
     min-height: fit-content;
     outline: solid rgb(70, 38, 21);
-    background-color: rgba(53, 103, 62, 0.8);
+    background-color: rgba(77, 55, 11, 0.8);
     display: grid;
     justify-content: center;
     text-align: center;
     grid-template-rows: repeat(8, min-content);
     grid-template-columns: repeat(8, min-content);
+
 }
 
 .gamePiece {
     outline: solid rgb(70, 38, 21) 1px;
     height: 5vh;
     width: 5vw;
-    min-height: 30px;
-    min-width: 30px;
+    min-height: 50px;
+    min-width: 40px;
 }
