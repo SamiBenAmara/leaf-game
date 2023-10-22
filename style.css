@@ -167,14 +167,22 @@ body {
     background-color: red;
     color: white;
     font-size: larger;
+    font-weight: bold;
     padding: 0.5em;
     margin: 0.5em;
-    width: 65%;
+    width: 35%;
     border-radius: 0.5em;
     transition: background-color ease-in-out 0.25s;
     outline: none;
     border: none;
-}#Reset:hover{
-    background-color: pink;
+}
+#Reset:hover{
+    filter: brightness(1.5);
+    transform: scale(1.05);
     color:black;
+    transition: 0.1s;
+}
+
+#Reset:active {
+    transform: scale(0.96);
 }

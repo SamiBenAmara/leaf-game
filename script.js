@@ -63,7 +63,8 @@ function createScoreboard(players) {
         scoreName.textContent = (`Player ${[i+1]}`);
         scoreboardContainer.appendChild(scoreName);
         let scoreCount = document.createElement('div');
-        scoreCount.textContent = ("1234")
+        scoreCount.id = `score${[i]}`
+        scoreCount.textContent = (0)
         scoreboardContainer.appendChild(scoreCount);
     }
 }
