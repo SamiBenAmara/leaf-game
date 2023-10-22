@@ -140,3 +140,13 @@ body {
     background-repeat: no-repeat;
     transform: rotateY(180deg);
 }
+
+.red_bug {
+    background-image: url('./media/redbug.svg');
+    background-size: cover;
+    height: 5vh;
+    width: 5vw;
+    max-width: 30px;
+    max-height: 30px;
+    background-repeat: no-repeat
+}
