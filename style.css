@@ -50,6 +50,9 @@ table {
 /* RESET ENDS */
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-size: cover;
     background-image: url("./media/leafbackground.jpg");
     font-family: cursive, sans-serif ;
@@ -158,4 +161,19 @@ body {
     width: max-content;
     border-radius: 2px;
     align-items: center;
+}
+.Reset{
+    background-color: red;
+    color: white;
+    font-size: larger;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 65%;
+    border-radius: 0.5em;
+    transition: background-color ease-in-out 0.25s;
+    outline: none;
+    border: none;
+}.Reset:hover{
+    background-color: pink;
+    color:black;
 }
