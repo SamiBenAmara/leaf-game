@@ -58,10 +58,13 @@ function createScoreboard(players) {
         scoreboardContainer.classList.add("scoreboardContainer");
         scoreboard.appendChild(scoreboardContainer);
         let scoreName = document.createElement('div');
-        scoreName.textContent = (`Player ${[i+1]}`);
+        scoreName.id = `name${[i]}`
+        scoreName.classList.add('playerName')
+        scoreName.textContent = (`Player -`);
         scoreboardContainer.appendChild(scoreName);
         let scoreCount = document.createElement('div');
         scoreCount.id = `score${[i]}`
+        scoreCount.classList.add('scoreCount')
         scoreCount.textContent = (0)
         scoreboardContainer.appendChild(scoreCount);
     }
