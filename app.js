@@ -14,26 +14,37 @@ function createName() {
     let playerId;
     let playerRef;
     // all other things
-    let players; // local state of other players
-    let leaves; // local state of leaves
-    let bugs; // local state of bugs
+    let players = {}; // local state of other players
+    let leaves = {}; // local state of leaves
+    let bugs = {}; // local state of bugs
 
     // listen to clicks
     const gameBoard = document.getElementById('gameboardContainer');
     gameBoard.addEventListener('click', handleClick);
 
     function handleClick(e) {
-        const x = e.target.cellIndex;
-        const y = e.target.parentElement.rowIndex;
+        // console.log(e);
+        const leaf = e.target.closest('td');
+        // console.log(leaf);
+        const x = leaf.getAttribute("ypos");
+        const y = leaf.getAttribute("xpos");
 
-        console.log("Leaf clicked at location:", "x: ", x, " y: ", y);
+        // console.log("Leaf clicked at location:", "x: ", x, " y: ", y);
+        // console.log(typeof(x), typeof(y))
 
+        const leafKey = getKeyString(x, y);
+        leaves[leafKey] = true;
+        const leafRef = firebase.database().ref(`leaves/${leafKey}`);
+        leafRef.set({
+            x,
+            y,
+        })
     }
 
     function initGame() {
-        const allPlayersRef = firebase.database().ref(`players`)
-        const allBugsRef = firebase.database().ref(`bugs`)
-        const allLeavesRef = firebase.database().ref(`leaves`)
+        const allPlayersRef = firebase.database().ref(`players`);
+        const allBugsRef = firebase.database().ref(`bugs`);
+        const allLeavesRef = firebase.database().ref(`leaves`);
 
         allPlayersRef.on("value", (snapshot) => {
             // Does something when a change occurs
@@ -42,26 +53,37 @@ function createName() {
 
         allBugsRef.on("value", (snapshot) => {
             // Do something when a change occurs in bugs
+            bugs = snapshot.val() || {};
         })
 
         allLeavesRef.on("value", (snapshot) => {
             // Do something when a change occurs in bugs
+            leaves = snapshot.val() || {};
         })
 
         allLeavesRef.on("child_added", (snapshot) => {
             // Change leaves when new leaf added
             const addedLeaf = snapshot.val();
+
+            let addedLeaf_x = addedLeaf.x;
+            let addedLeaf_y = addedLeaf.y;
+            console.log(addedLeaf_x, addedLeaf_y);
+
+            const addedLeafKey = getKeyString(addedLeaf_x, addedLeaf_y);
+            leaves[addedLeafKey] = true;
+
+            let toChangeLeafContainer = document.getElementById("gameboardContainer").rows[addedLeaf_x].cells[addedLeaf_y];
+            console.log(toChangeLeafContainer);
+            transformLeaf(toChangeLeafContainer.querySelector("div .leaf"));
         })
 
         allPlayersRef.on("child_added", (snapshot) => {
             // fires when a new player is added in the tree
             const addedPlayer = snapshot.val();
-            const characterElement = document.createElement('div')
+            console.log("Player added: ", addedPlayer);
+            const characterElement = document.createElement('div');
             // TODO: to add the player to a score grid-cell on side of window (where scores go)
 
-            if (addedPlayer.id === playerId) {
-
-            }
         })
     }
 
