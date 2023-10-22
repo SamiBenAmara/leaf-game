@@ -2,6 +2,8 @@
 
 let coordinatesArray = [];
 let bugCoordinatesArray = [];
+var leavesTurned=0;
+var bugsFound=0;
 
 function generateBugCoordinates() {
 
@@ -86,8 +88,9 @@ function generateGrid(gridSize) {
             transformLeaf(leafObj, isBugHere);
             if (isBugHere) {
                 leafObj.style.display = "none";
-
                 bugObj.style.display = "block";
+                bugsFound++;
+                document.getElementById("FoundBugs").textContent="Bugs Found: "+bugsFound.toString();
             }
         };
     }
@@ -101,7 +104,11 @@ function leafToBug(leafObject) {
 function transformLeaf(leafObject){
     // audio.load();
     // audio.play();
-
+    if(parseFloat(window.getComputedStyle(leafObject).getPropertyValue("opacity")))
+    {
+        leavesTurned++;
+        document.getElementById("leavesFound").textContent="Leaves flipped: "+leavesTurned.toString();
+    }
     leafObject.style.transform = 'rotateY(-1620deg)';
 
     leafObject.style.animation = 'fadeOut 1500ms';
@@ -112,26 +119,19 @@ function transformLeaf(leafObject){
 
 const scoreboard = document.getElementById('scoreboard')
 
-function createScoreboard(players) {
-    for (let i = 0; i < players; i++) {
-        let scoreboardContainer = document.createElement('div');
-        scoreboardContainer.classList.add("scoreboardContainer");
-        scoreboard.appendChild(scoreboardContainer);
-        let scoreName = document.createElement('div');
-        scoreName.id = `name${[i]}`
-        scoreName.classList.add('playerName')
-        scoreName.textContent = (`Player -`);
-        scoreboardContainer.appendChild(scoreName);
-        let scoreCount = document.createElement('div');
-        scoreCount.id = `score${[i]}`
-        scoreCount.classList.add('scoreCount')
-        scoreCount.textContent = (0)
-        scoreboardContainer.appendChild(scoreCount);
-    
+function createScoreboard() {
+    // for (let i = 0; i < players; i++) {
+        let found = document.createElement('div');
+        found.classList.add("scoreboardContainer");
+        found.id="FoundBugs";
+        found.textContent="Bugs flipped: "+leavesTurned.toString();
+        let leaves = document.createElement('div');
+        leaves.classList.add("scoreboardContainer");
+        leaves.id="leavesFound";
+        leaves.textContent="Leaves Found: "+bugsFound.toString();
+        scoreboard.appendChild(found);
+        scoreboard.appendChild(leaves);
     }
-}
-
-createScoreboard(4)
-
 generateBugCoordinates();
+createScoreboard();
 generateGrid(GRID_SIZE)
